@@ -1,7 +1,7 @@
 'use strict'
 
 const express = require('express');
-const Place = require('/..models/place');
+const Place = require('../models/place');
 const place = new Place();
 
 const router = express.Router();
@@ -10,31 +10,34 @@ const router = express.Router();
 
 router.get('/place', getPlace);
 router.get('/place/:id', getOnePlace);
-router.get('/place', createPlace);
-router.get('/place', updatePlace);
-router.get('/place/:id', deletePlace);
+router.post('/place', createPlace);
+router.put('/place/:id', updatePlace);
+router.delete('/place/:id', deletePlace);
 
 //RESTful route handlers
 
 function getPlace(req, res) {
-    cosnt allPlaces = place.get();
+    const allPlaces = place.get();
     res.status(200).json(allPlaces);
 }
 
 function getOnePlace(req, res) {
-    cosnt id = req.params.id;
-    cosnt onePlace = place.get(id)
+    const id = req.params.id;
+    const onePlace = place.get(id);
     res.status(200).json(onePlace);
 }
 
 function createPlace(req, res) {
+    console.log(req.body.place);
     const obj = req.body;
-    const newPlace = place.create(oj);
+    const newPlace = place.create(obj);
     res.status(200).json(newPlace);
 }
 
 function updatePlace(req, res) {
-    res.status(200).json('updating place');
+    const updateId = req.params.id;
+    const updatedPlace = place.update(updateId, req.body);
+    res.status(200).json(updatedPlace);
 }
 
 function deletePlace(req, res) {
