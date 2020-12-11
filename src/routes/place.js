@@ -28,7 +28,7 @@ function getOnePlace(req, res) {
 }
 
 function createPlace(req, res) {
-    console.log(req.body.place);
+    console.log(req.body.name);
     const obj = req.body;
     const newPlace = place.create(obj);
     res.status(200).json(newPlace);
@@ -41,6 +41,8 @@ function updatePlace(req, res) {
 }
 
 function deletePlace(req, res) {
+    const deleteId = req.params.id;
+    const deletePlace = place.delete(deleteId);
     res.status(200).send('deleting place');
 }
 
