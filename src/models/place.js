@@ -31,10 +31,10 @@ class Place {
     }
 
     delete(id) {
-        id = parseInt(id);
+        let recordId = parseInt(id);
         if(id) {
         console.log(id);
-        this.db = this.db.filter(record => record.id == !id)
+        this.db = this.db.filter(record => record.id == !recordId);
         console.log(this.db);
         }
 //use array method of findIndex() use a .then use a splice()
