@@ -1,5 +1,5 @@
 const loggerMiddleware = require('../src/middleware/logger.js');
-
+//logger tests logs output
 describe('logger middleware', () => {
 
     let consoleSpy;
@@ -24,6 +24,4 @@ describe('logger middleware', () => {
         loggerMiddleware(req, res, next);
         expect(next).toHaveBeenCalledWith();
     });
-
-    it('')
 });
