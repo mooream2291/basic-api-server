@@ -41,4 +41,4 @@ Did not complete tests
 
 #### UML
 
-still need to get deployment on github working
+[UML diagram](/assets/lab-3.png)
